@@ -1,8 +1,10 @@
 p, h1, h2, h3, h4{
     color: white;
 }
+
 body.background {
-    background-color: rgb(19, 21, 22); 
+    background-color: rgb(88, 85, 85); 
+    text-color: white;
 }
 
 .navbar {

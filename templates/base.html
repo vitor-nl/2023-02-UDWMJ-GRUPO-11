@@ -15,7 +15,7 @@
     {% block body %}
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Locadora de Veículos</a>
+        <a class="navbar-brand" href="#">Locadora Douradora</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,7 +39,8 @@
     <div class="container mt-5 custom-carousel-container">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="col-md-6 text-center">
-                <h2>SEJA BEM VINDO</h2>
+                <h1>SEJA BEM VINDO</h1>
+                <br />
                 <h3>Conheça nossa locadora de veículos</h3>
                 <p>Bem-vindo à Locadora Duradoura de Veículos, onde proporcionamos uma experiência de locação excepcional com veículos de qualidade e serviço dedicado. Nossa missão é tornar cada jornada memorável, oferecendo opções diversificadas, atendimento personalizado e um compromisso duradouro com a satisfação do cliente.</p>
                 <h3>Ampla Variedade de Opções</h3>
@@ -54,7 +55,8 @@
             </div>
         </div>
     </div>
-
+    <br />
+    <br />
     <div id="carouselExample" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -77,25 +79,31 @@
         </a>
     </div>
 
-    <div class="contatos">
-        <h2>NOSSOS CONTATOS</h2>
-        <p><strong>E-mail:</strong> <a href="#">Locadora_duradoura@duramail.com</a></p>
-        <p><strong>Telefones:</strong></p>
-        <p>51 998785412</p>
-        <p>51 952728541</p>
-        <p>51 97285782</p>
-        <p><strong>Instagram:</strong> <a href="#" target="_blank">@suaconta</a></p>
-        <p><strong>Facebook:</strong> <a href="#" target="_blank">Sua Página</a></p>
-        <p><strong>YouTube:</strong> <a href="#" target="_blank">Seu Canal</a></p>
-    </div>
 
+    <div class="container mt-5">
+        <h2 class="justify-content-center">NOSSOS CONTATOS:</h2>
+        <div class="row">
+            <div class="col-md-6 contatos">
+                <p><strong>Telefones:</strong></p>
+                <p>(55) 51 998785412</p>
+                <p>(55) 51 952728541</p>
+                <p>(55) 51 97285782</p>
+            </div>
+
+            <div class="col-md-6 contatos2">
+                <p><strong>E-mail:</strong> <a href="#">Locadora_duradoura@duramail.com</a></p>
+                <p><strong>Instagram:</strong> <a href="#" target="_blank">@LocaDouradoura</a></p>
+                <p><strong>Facebook:</strong> <a href="#" target="_blank">Locadora Duradoura</a></p>
+                <p><strong>YouTube:</strong> <a href="#" target="_blank">Louca que leva tempo</a></p>
+            </div>
+        </div>
+    </div>
+    <br />
     <footer class="footer mt-auto py-3 bg-dark">
         <div class="container">
             <span class="text-muted">© 2023 Locadora Duradoura. Todos os direitos reservados.</span>
         </div>
     </footer>
-    
-    
 
     {% endblock body %}
     

@@ -8,8 +8,8 @@
 
 {% block body %}
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Locadora de Veículos</a>
+    <nav id = "formu" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Tabela de Produtos</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,9 +33,8 @@
 
     <div class="container">
         <br />
-        <h5><b>Lista de Produtos</b></h5>
+        <h5 style= "color: white"><b>Lista de Produtos</b></h5>
         <br />
-            <a href="{% url 'products:add_product' %}">Cadastro de novo produto</a>
         <br />
         <br />
         <div class="row">
@@ -43,22 +42,22 @@
                 <table class="table table-hover">
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Data de fabricacao</th>
-                    <th scope="col">Ativo</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col"></th>
+                    <th style= "color: white" scope="col">#</th>
+                    <th style= "color: white" scope="col">Nome</th>
+                    <th style= "color: white" scope="col">Data de fabricacao</th>
+                    <th style= "color: white" scope="col">Ativo</th>
+                    <th style= "color: white" scope="col">Categoria</th>
+                    <th style= "color: white" scope="col"></th>
                     <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for product in products %}
                         <tr>
-                            <th scope="row">{{ product.id }}</th>
-                            <td>{{ product.name }}</td>
-                            <td>{{ product.date_fabrication }}</td>
-                            <td>
+                            <th style= "color: white" scope="row">{{ product.id }}</th>
+                            <td style= "color: white">{{ product.name }}</td>
+                            <td style= "color: white">{{ product.date_fabrication }}</td>
+                            <td style= "color: white">
                                 {% if product.is_active == True %}
                                     <a>Ativo</a>
                                 {% endif %}
@@ -66,16 +65,15 @@
                                     <a>Ativo</a>
                                 {% endif %}
                             </td>
-                            <td>{{ product.category }}</td>
                             <td>
-                                {% if produtct.id %}
+                                {% if product.id %}
                                     <a href="{% url 'products:edit_product' product.id %}" class="btn btn-primary btn-sm">Editar</a>
                                 {% else %}
                                     <p>Produto sem ID válido Edit</p>
                                 {% endif %}
                             </td>
-                            <td>
-                                {% if orodutct.id %}
+                            <td style= "color: white">
+                                {% if product.id %}
                                     <a href="{% url 'products:delete_product' product.id %}" class="btn btn-danger btn-sm ">Excluir</a>
                                 {% else %}
                                     <p>Produto sem ID válido Delete</p>
@@ -85,6 +83,9 @@
                     {% endfor %}
                 </tbody>
                 </table>
+                <button class="btn btn-light">
+                    <a href="{% url 'products:add_product' %}">Cadastro de novo produto</a>
+                </button>
             </div>
         </div>
     </div>
