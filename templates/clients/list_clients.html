@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Clientes - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Locadora de Veículos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://127.0.0.1:8000">Home <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'clients:list_clients' %}">Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'products:list_products' %}">Carros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'categories:list_categories' %}">Modelos</a>
+                </li>
+            </ul>
+        </div>
+    </nav>    
+
+    <div class="container">
+        <br />
+        <h5><b>Lista de Clientes</b></h5>
+        <div class="row">
+            <div class ="col-md-12">
+                <br />
+                    <a href="{% url 'clients:add_client' %}">Cadastro de novo Cliente</a>
+                <br />
+                <br />
+                <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Sobrenome</th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for client in clients %}
+                        <tr>
+                            <th scope="row">{{ client.id }}</th>
+                            <td>{{ client.first_name }}</td>
+                            <td>{{ client.last_name }}</td>
+                            <td>{{ client.address }}</td>
+                            <td>{{ client.cell_phone }}</td>
+                            <td>{{ client.email }}</td>
+                            <td>
+                                {% if client.id %}
+                                    <a href="{% url 'clients:edit_client' client.id %}" class="btn btn-primary btn-sm">Editar</a>
+                                {% else %}
+                                    <p>Cliente sem ID válido Edit</p>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if client.id %}
+                                    <a href="{% url 'clients:delete_client' client.id %}" class="btn btn-danger btn-sm ">Excluir</a>
+                                {% else %}
+                                    <p>Cliente sem ID válido Delete</p>
+                                {% endif %}
+                            </td>
+                        </tr> 
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

@@ -1,0 +1,19 @@
+p, h1, h2, h3, h4{
+    color: white;
+}
+body.background {
+    background-color: rgb(19, 21, 22); 
+}
+
+.navbar {
+    padding: 20px; /* Ajuste conforme necessário */
+    font-size: 20px; /* Ajuste conforme necessário */
+}
+
+.titulo2{
+    text-align: center;
+}
+.custom-carousel-container {
+    max-width: 100%;
+    margin: 0px;
+}

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Produtos - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Locadora de Veículos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://127.0.0.1:8000">Home <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'clients:list_clients' %}">Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'products:list_products' %}">Carros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'categories:list_categories' %}">Modelos</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <br />
+        <h5><b>Lista de Produtos</b></h5>
+        <br />
+            <a href="{% url 'products:add_product' %}">Cadastro de novo produto</a>
+        <br />
+        <br />
+        <div class="row">
+            <div class ="col-md-12">
+                <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Data de fabricacao</th>
+                    <th scope="col">Ativo</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <th scope="row">{{ product.id }}</th>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.date_fabrication }}</td>
+                            <td>
+                                {% if product.is_active == True %}
+                                    <a>Ativo</a>
+                                {% endif %}
+                                {% if product.is_active == False %}
+                                    <a>Ativo</a>
+                                {% endif %}
+                            </td>
+                            <td>{{ product.category }}</td>
+                            <td>
+                                {% if produtct.id %}
+                                    <a href="{% url 'products:edit_product' product.id %}" class="btn btn-primary btn-sm">Editar</a>
+                                {% else %}
+                                    <p>Produto sem ID válido Edit</p>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if orodutct.id %}
+                                    <a href="{% url 'products:delete_product' product.id %}" class="btn btn-danger btn-sm ">Excluir</a>
+                                {% else %}
+                                    <p>Produto sem ID válido Delete</p>
+                                {% endif %}
+                            </td>
+                        </tr> 
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
